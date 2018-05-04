@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 {% block title %}Dashboard{% endblock %}
 {% block body %}
-<div class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-message">
-                    <h1>The Dashboard</h1>
-                    <h3>We made it here!</h3>
-                    <hr class="intro-divider">
-                    </ul>
-                </div>
+<div class="content-section">
+  <div class="center">
+        <h3>Repo Dashboard</h3>
+      <p>
+      Here's a listing of all repos that are inside of the <code>./data/</code> folder. Each one of these options is its own root of a get repo, and also a git repo.
+      </p>
+      <p>
+      The status icon to the right of the repo name indicates whether the local repo is synced with the CDN over git.
+      </p>
+      <div>
+        {% for repo in repos %}
+        <a class="repo-block" href="/dashboard/{{ repo }}/">
+            <div>
+                <span><i class="fa fa-folder"></i> {{ repo }}</span>
             </div>
-        </div>
+        </a>
+        {% endfor %}
+        <a class="repo-block" href="/dashboard/add/">
+            <div>
+                <span><i class="fa fa-plus-circle"></i> New Repo</span>
+            </div>
+        </a>
+          </div>
     </div>
 </div>
 {% endblock %}
