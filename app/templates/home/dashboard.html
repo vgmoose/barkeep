@@ -3,22 +3,22 @@
 {% block body %}
 <div class="content-section">
   <div class="center">
-        <h3>Repo Dashboard</h3>
+        <h2>Repo Dashboard</h2>
       <p>
       Here's a listing of all repos that are inside of the <code>./data/</code> folder. Each one of these options is its own root of a get repo, and also a git repo.
       </p>
       <p>
-      The status icon to the right of the repo name indicates whether the local repo is synced with the CDN over git.
+      The status icon to the right of the repo name indicates whether the local get repo is synced with the CDN over git.
       </p>
       <div>
         {% for repo in repos %}
-        <a class="repo-block" href="/dashboard/{{ repo }}/">
+        <a class="repo-block" href="/dashboard/{{ repo }}">
             <div>
                 <span><i class="fa fa-folder"></i> {{ repo }}</span>
             </div>
         </a>
         {% endfor %}
-        <a class="repo-block" href="/dashboard/add/">
+        <a class="repo-block" href="/dashboard/add">
             <div>
                 <span><i class="fa fa-plus-circle"></i> New Repo</span>
             </div>

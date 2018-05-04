@@ -1,0 +1,12 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}New Repo{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="center">
+    <h1>Create Local Repo</h1>
+    <br/>
+    {{ wtf.quick_form(form) }}
+  </div>
+</div>
+{% endblock %}

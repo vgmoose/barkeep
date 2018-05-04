@@ -41,6 +41,8 @@ p.copyright {
 
 .btn-default:hover {
     background-color: #4e72e1;
+    color: white;
+    
 }
 
 .center {
@@ -124,4 +126,9 @@ a.repo-block > div {
     margin-top: 20px;
     margin-right: 10px;
 /*    height: 50px;*/
+}
+
+a.repo-block > div:hover {
+    color: white;
+    background-color: #4e72e1;
 }

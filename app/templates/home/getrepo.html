@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="content-section">
+  <div class="center">
+        <h2>"{{ repo }}" Repo Details</h2>
+      <p>
+      There are {{ count }} packages in this repo.
+      </p>
+      <div>
+        {% for package in packages %}
+        <a class="repo-block" href="/dashboard/{{ repo }}/{{ package }}">
+            <div>
+                <span><i class="fa fa-folder"></i> {{ package }}</span>
+            </div>
+        </a>
+        {% endfor %}
+        <a class="repo-block" href="/dashboard/{{ repo }}/add">
+            <div>
+                <span><i class="fa fa-plus-circle"></i> New Package</span>
+            </div>
+        </a>
+      </div>
+    </div>
+</div>
+{% endblock %}
