@@ -132,3 +132,21 @@ a.repo-block > div:hover {
     color: white;
     background-color: #4e72e1;
 }
+
+.btn-red {
+    border-color: #ff6666;
+    color: #ff6666;
+}
+
+.btn-red:hover {
+    background-color: #ff6666;
+}
+
+.btn-green {
+    border-color: #22aa22;
+    color: #22aa22;
+}
+
+.btn-green:hover {
+    background-color: #22aa22;
+}

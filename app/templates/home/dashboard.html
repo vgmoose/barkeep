@@ -3,6 +3,8 @@
 {% block body %}
 <div class="content-section">
   <div class="center">
+    {% import "bootstrap/utils.html" as utils %}
+      {{ utils.flashed_messages() }}
         <h2>Repo Dashboard</h2>
       <p>
       Here's a listing of all repos that are inside of the <code>./data/</code> folder. Each one of these options is its own root of a get repo, and also a git repo.

@@ -2,15 +2,28 @@
 {% block body %}
 <div class="content-section">
   <div class="center">
+      {% import "bootstrap/utils.html" as utils %}
+      {{ utils.flashed_messages() }}
         <h2>"{{ repo }}" Repo Details</h2>
       <p>
-      There are {{ count }} packages in this repo.
+        There are {{ count }} packages in this repo.
       </p>
-      <div>
+      <p style="float: left">
+        <input class="btn btn-default" value="Build All" type="submit"> 
+        <input class="btn btn-default btn-green" value="Resync" type="submit">&nbsp;
+          
+        {% if count==0 %}
+          <form method="POST">
+              <input hidden name="action" value="delete">
+              <input class="btn btn-default btn-red" value="Delete" type="submit" />
+          </form>
+        {% endif %}
+      </p>
+      <div style="clear: both;">
         {% for package in packages %}
         <a class="repo-block" href="/dashboard/{{ repo }}/{{ package }}">
             <div>
-                <span><i class="fa fa-folder"></i> {{ package }}</span>
+                <span><i class="fa fa-gift"></i> {{ package }}</span>
             </div>
         </a>
         {% endfor %}

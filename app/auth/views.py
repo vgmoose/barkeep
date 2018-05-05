@@ -8,10 +8,6 @@ from ..models import Employee
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    """
-    Handle requests to the /signup route
-    Add an employee to the database through the registration form
-    """
     form = RegistrationForm()
     if form.validate_on_submit():
         employee = Employee(username=form.username.data,

@@ -1,4 +1,4 @@
-from flask import flash, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for, request
 from flask_login import login_required
 
 from . import home
@@ -28,6 +28,7 @@ def dashboard():
     return render_template('home/dashboard.html', title="Dashboard", repos=repos)
 
 @home.route('/dashboard/add', methods=['GET', 'POST'])
+@login_required
 def newrepo():
     """
     The form for making a new repo is just the folder name
@@ -46,7 +47,8 @@ def newrepo():
     # load registration template
     return render_template('home/add.html', form=form, title='Add Repo')
 
-@home.route('/dashboard/<folder>')
+@home.route('/dashboard/<folder>', methods=['GET', 'POST'])
+@login_required
 def getrepo(folder):
     
     # check if repo doesn't exist
@@ -71,10 +73,25 @@ def getrepo(folder):
         
     if "packages" not in packages:
         packages["packages"] = []
+        
+    # a delete is coming in
+    if request.method == 'POST' and request.form['action'] == 'delete':
+        # make sure there are no packages
+        if len(packages["packages"]) == 0:
+            # delete the repo json and parent folder
+            os.remove(JSON)
+            os.rmdir(DATA + folder)
+            # go back to dashboard
+            return redirect(url_for("home.dashboard"))
+        else:
+            flash("Repo must have 0 packages to delete")
     
     return render_template('home/getrepo.html', title="%s Repo" % folder, repo=folder, packages=packages["packages"], count=len(packages["packages"]))
 
+
+
 @home.route('/dashboard/<folder>/add', methods=['GET', 'POST'])
+@login_required
 def modifypackage():
     """
     The form for making or editing a new package
