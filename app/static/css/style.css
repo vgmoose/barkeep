@@ -42,7 +42,7 @@ p.copyright {
 .btn-default:hover {
     background-color: #4e72e1;
     color: white;
-    
+
 }
 
 .center {
@@ -58,7 +58,7 @@ p.copyright {
 
 .footer, .push {
   clear: both;
-  height: 4em;
+  height: 7em;
 }
 
 .intro-divider {
