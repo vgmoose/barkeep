@@ -52,7 +52,7 @@ def newrepo():
         return redirect(url_for('home.dashboard'))
 
     # load registration template
-    return render_template('home/add.html', form=form, title='Local Repo')
+    return render_template('home/add.html', form=form, title='Local Repo', target="add")
 
 @home.route('/dashboard/<folder>', methods=['GET', 'POST'])
 @login_required
@@ -144,4 +144,4 @@ def modifypackage(folder, package):
         return redirect(url_for('home.dashboard'))
 
     # load registration template
-    return render_template('home/add.html', form=form, title='Package', package=package)
+    return render_template('home/add.html', form=form, title='Package', target=package)

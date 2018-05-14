@@ -1,10 +1,10 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% extends "base.html" %}
-{% block title %}{{"Add" if package=="add" else "Edit"}} {{ title }}{% endblock %}
+{% block title %}{{("Add " if target=="add" else "Edit ") + title }}{% endblock %}
 {% block body %}
 <div class="content-section">
   <div class="center">
-    <h1>{{"Create Package" if package=="add" else "Edit \"" + package + "\""}}</h1>
+    <h1>{{"Create "+title if target=="add" else "Edit \"" + target + "\""}}</h1>
     <br/>
     {{ wtf.quick_form(form) }}
   </div>
