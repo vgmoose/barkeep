@@ -1,2 +1,3 @@
-SECRET_KEY = 'supersecretgoodbutrealithiink@(*#)'
-SQLALCHEMY_DATABASE_URI = 'mysql://dt_admin:dt2016@localhost/dreamteam_db'
+# Just an example is committed to version control :P
+SECRET_KEY = 'SECRETHERE'
+SQLALCHEMY_DATABASE_URI = 'mysql://user:pass@localhost/dbname'
