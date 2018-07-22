@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  barkeep:
+    build: .
+    networks:
+      - default
+    ports:
+      - 5000:5000
+    volumes:
+      - ./data:/code/data
+    working_dir: /code
+
+  mysql:
+    image: mysql:5.6
+    networks:
+      - default
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=barkeep
+      - MYSQL_USER=barkeep_user
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+volumes:
+  mysql:
+
+networks:
+  default:
